@@ -62,7 +62,6 @@
      * @returns {string}
      */
     Hackerone.prototype.url = function (path, param) {
-        console.log(this.endpoint + path + '?' + this.serialize(param || {}));
         return this.endpoint + path + '?' + this.serialize(param || {});
     };
 
