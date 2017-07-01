@@ -11,9 +11,8 @@
  * @param callback
  */
 module.exports = function (id, param, callback) {
-    this.post('reports/' + id + '/assignee', {
+    this.post('reports/' + id + '/state_changes', {
         data: {
-            id: param.id,
             type: 'state-change',
             attributes: {
                 message: param.message,
