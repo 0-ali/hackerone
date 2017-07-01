@@ -4,7 +4,8 @@
   "description": "A HackerOne API client for Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec -t 15000"
+    "test": "mocha --reporter spec -t 15000",
+    "test-co": "PATH=$(npm bin):$PATH  && istanbul cover _mocha -t 15000 --reporter lcovonly -- -R spec && codecov"
   },
   "repository": {
     "type": "git",
