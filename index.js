@@ -14,6 +14,8 @@
     function Hackerone(user, password) {
         this.authentication(user, password);
         this.reports = this.list('reports');
+        this.programs = this.list('programs');
+        this.me = this.list('me');
     }
 
     /**
