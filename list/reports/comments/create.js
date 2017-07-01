@@ -1,5 +1,5 @@
 /*!
- * hackerone.reports.comment.create (https://github.com/xc0d3rz/hackerone)
+ * hackerone.reports.comments.create (https://github.com/xc0d3rz/hackerone)
  * Copyright 2016-2017 xc0d3rz(x.c0d3rz000@gmail.com)
  * Licensed under the MIT license
  */
