@@ -25,9 +25,9 @@ describe('Reports', function () {
         });
     });
 
-    describe('Comments', function () {
+    describe('Reports ► Comments', function () {
         describe('Post a public comment', function () {
-            it('returns no error', function (done) {
+            it('respond without any error', function (done) {
                 var _this = this;
                 Hackerone.reports.comments.create(129329, {
                     message: 'A fix has been deployed. Can you retest, please?',
@@ -42,9 +42,25 @@ describe('Reports', function () {
                 });
             });
         });
+
+        describe('lock a report', function () {
+            it('respond without any error', function (done) {
+                var _this = this;
+                Hackerone.reports.comments.close(129329, {
+                    id: 129329
+                }, function (err, res) {
+                    if (err.errors[0].status == 403) {
+                        _this.skip();
+                    } else {
+                        assert.equal(err, null);
+                    }
+                    done();
+                });
+            });
+        });
     });
 
-    describe('Assignee', function () {
+    describe('Reports ► Assignee', function () {
         describe('Assign a user', function () {
             it('respond with the updated report object', function (done) {
                 var _this = this;
@@ -65,7 +81,7 @@ describe('Reports', function () {
         });
     });
 
-    describe('State', function () {
+    describe('Reports ► State Changes', function () {
         describe('Mark a report as resolved', function () {
             it('respond without any error', function (done) {
                 var _this = this;
@@ -84,5 +100,63 @@ describe('Reports', function () {
             });
         });
     });
+
+    describe('Reports ► Title', function () {
+        describe('Update the title of a report', function () {
+            it('respond without any error', function (done) {
+                var _this = this;
+                Hackerone.reports.title.update(129329, {
+                    title: 'Report Title Updated!'
+                }, function (err, res) {
+                    if (err.errors[0].status == 403) {
+                        _this.skip();
+                    } else {
+                        assert.equal(err, null);
+                    }
+                    done();
+                });
+
+            });
+        });
+    });
+
+    describe('Reports ► Issue Tracker Reference IDs', function () {
+        describe('Add a reference to a report', function () {
+            it('respond without any error', function (done) {
+                var _this = this;
+                Hackerone.reports.issue.create(129329, {
+                    reference: 'T7413'
+                }, function (err, res) {
+                    if (err.errors[0].status == 403) {
+                        _this.skip();
+                    } else {
+                        assert.equal(err, null);
+                    }
+                    done();
+                });
+
+            });
+        });
+    });
+
+    describe('Reports ► Summaries', function () {
+        describe('The created report summary', function () {
+            it('respond without any error', function (done) {
+                var _this = this;
+                Hackerone.reports.summaries.create(129329, {
+                    content: 'There was a cross-site scripting vulnerability in our login form.'
+                }, function (err, res) {
+                    if (err.errors[0].status == 403) {
+                        _this.skip();
+                    } else {
+                        assert.equal(err, null);
+                    }
+                    done();
+                });
+
+            });
+        });
+    });
+
 
 });
