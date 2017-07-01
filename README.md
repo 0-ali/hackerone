@@ -73,7 +73,7 @@ Hackerone.reports.assignee.update('REPORT-ID', {
 }, function (err, res) {
    ...
 ```
-
+For more example see `test/*.js`
 ## Todo
 
 - Documentation :x:
