@@ -11,7 +11,7 @@
  * @param callback
  */
 module.exports = function (id, param, callback) {
-    this.post('reports/' + id + '/close_comments', {
+    this.put('reports/' + id + '/close_comments', {
         data: {
             type: 'activity-comments-closed',
             attributes: {
