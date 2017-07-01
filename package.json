@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter spec -t 15000",
-    "test-co": "PATH=$(npm bin):$PATH  && istanbul cover _mocha -t 15000 --reporter lcovonly -- -R spec && codecov"
+    "test-co": "PATH=$(npm bin):$PATH  && istanbul cover _mocha --reporter lcovonly -- -R spec -t 15000 && codecov"
   },
   "repository": {
     "type": "git",
