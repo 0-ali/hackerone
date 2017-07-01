@@ -13,7 +13,7 @@ module.exports = function (query, callback) {
     var param = {page: {}};
     query = query || {};
     for (var o in query) {
-        param.page[o] = [query[o]];
+        param.page[o] = query[o];
     }
     this.get('me/programs', param, callback);
 };
